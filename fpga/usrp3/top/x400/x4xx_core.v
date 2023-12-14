@@ -81,7 +81,7 @@ module x4xx_core #(
   inout  wire [ 63:0] dram0_dq,
   inout  wire [  7:0] dram0_dqs_t,
   inout  wire [  7:0] dram0_dqs_c,
-
+`ifndef X411
   // DRAM Bank 1
   input wire          dram1_sys_clk_p,
   input wire          dram1_sys_clk_n,
@@ -99,7 +99,7 @@ module x4xx_core #(
   inout  wire [ 63:0] dram1_dq,
   inout  wire [  7:0] dram1_dqs_t,
   inout  wire [  7:0] dram1_dqs_c,
-
+`endif
   // AXI-Lite interface (for motherboard registers)
   input                     s_axi_aclk,
   input                     s_axi_aresetn,
@@ -525,12 +525,16 @@ module x4xx_core #(
     .sys_rst                  (sys_rst),
     .dram0_sys_clk_p          (dram0_sys_clk_p),
     .dram0_sys_clk_n          (dram0_sys_clk_n),
+`ifndef X411
     .dram1_sys_clk_p          (dram1_sys_clk_p),
     .dram1_sys_clk_n          (dram1_sys_clk_n),
+`endif
     .dram0_ui_clk             (dram0_ui_clk),
     .dram0_ui_clk_sync_rst    (dram0_ui_clk_sync_rst),
+`ifndef X411
     .dram1_ui_clk             (),
     .dram1_ui_clk_sync_rst    (),
+`endif
     .dram0_ck_t               (dram0_ck_t),
     .dram0_ck_c               (dram0_ck_c),
     .dram0_cs_n               (dram0_cs_n),
@@ -545,6 +549,7 @@ module x4xx_core #(
     .dram0_dq                 (dram0_dq),
     .dram0_dqs_t              (dram0_dqs_t),
     .dram0_dqs_c              (dram0_dqs_c),
+`ifndef X411
     .dram1_ck_t               (dram1_ck_t),
     .dram1_ck_c               (dram1_ck_c),
     .dram1_cs_n               (dram1_cs_n),
@@ -559,6 +564,7 @@ module x4xx_core #(
     .dram1_dq                 (dram1_dq),
     .dram1_dqs_t              (dram1_dqs_t),
     .dram1_dqs_c              (dram1_dqs_c),
+`endif
     .dram_clk                 (dram_clk),
     .dram_rst                 (dram_rst),
     .dram_init_calib_complete (),

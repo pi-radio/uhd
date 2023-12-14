@@ -130,6 +130,47 @@ MB_XDC += \
 constraints/timing/x440_clocks.xdc
 endif
 
+ifdef X411
+MB_XDC += \
+constraints/pins/x411/common.xdc \
+constraints/timing/x411/shared_constants.sdc \
+constraints/timing/x411/common.xdc \
+constraints/pins/x411/dram.xdc \
+constraints/timing/x411/dram.xdc
+
+ifneq (,$(findstring =$(MGT_10GbE),$(EXTRA_DEFS)))
+  MB_XDC += constraints/timing/qsfp_10gbe.xdc
+endif
+
+# Add pin constraints for QSFP pins
+ifneq (,$(findstring QSFP0_0,"$(EXTRA_DEFS)"))
+  MB_XDC += constraints/pins/qsfp0_0.xdc
+endif
+ifneq (,$(findstring QSFP0_1,$(EXTRA_DEFS)))
+  MB_XDC += constraints/pins/qsfp0_1.xdc
+endif
+ifneq (,$(findstring QSFP0_2,$(EXTRA_DEFS)))
+  MB_XDC += constraints/pins/qsfp0_2.xdc
+endif
+ifneq (,$(findstring QSFP0_3,$(EXTRA_DEFS)))
+  MB_XDC += constraints/pins/qsfp0_3.xdc
+endif
+
+ifneq (,$(findstring QSFP1_0,$(EXTRA_DEFS)))
+  MB_XDC += constraints/pins/qsfp1_0.xdc
+endif
+ifneq (,$(findstring QSFP1_1,$(EXTRA_DEFS)))
+  MB_XDC += constraints/pins/qsfp1_1.xdc
+endif
+ifneq (,$(findstring QSFP1_2,$(EXTRA_DEFS)))
+  MB_XDC += constraints/pins/qsfp1_2.xdc
+endif
+ifneq (,$(findstring QSFP1_3,$(EXTRA_DEFS)))
+  MB_XDC += constraints/pins/qsfp1_3.xdc
+endif
+
+else
+
 MB_XDC += \
 constraints/pins/common.xdc \
 constraints/timing/shared_constants.sdc \
@@ -188,6 +229,8 @@ ifneq (,$(findstring QSFP1_2,$(EXTRA_DEFS)))
 endif
 ifneq (,$(findstring QSFP1_3,$(EXTRA_DEFS)))
   MB_XDC += constraints/pins/qsfp1_3.xdc
+endif
+
 endif
 
 DESIGN_SRCS = $(abspath $(MB_XDC))
