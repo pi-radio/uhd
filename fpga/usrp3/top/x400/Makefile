@@ -196,7 +196,7 @@ X410_X4_200: X410_IP build/usrp_x410_fpga_X4_200.dts
 	$(call vivado_build,X410,$(DEFS) X410=1,$(X410_200_DEFAULTS))
 	$(call post_build,X410,X4_200)
 
-X411_X4_200: X410_IP build/usrp_x411_fpga_X4_200.dts
+X411_X4_200: X411_IP build/usrp_x411_fpga_X4_200.dts
 	$(call vivado_build,X411,$(DEFS) X411=1,$(X411_200_DEFAULTS))
 	$(call post_build,X411,X4_200)
 
