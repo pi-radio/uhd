@@ -309,6 +309,16 @@ build/usrp_x410%.dts: dts/*.dts dts/*.dtsi
 	${CC} -o $@ -C -E -I dts -nostdinc -undef -x assembler-with-cpp -D__DTS__ \
 		$$(python3 tools/get_dts_input.py --target $@)
 
+build/usrp_x411%.dts: dts/*.dts dts/*.dtsi
+	-mkdir -p build
+	tools/parse_versions_for_dts.py \
+		--input regmap/x411/versioning_regs_regmap_utils.vh \
+		--output dts/x411-version-info.dtsi \
+		--components fpga,cpld_ifc,db_gpio_ifc,rf_core_100m,rf_core_400m
+	${CC} -o $@ -C -E -I dts -nostdinc -undef -x assembler-with-cpp -D__DTS__ \
+		$$(python3 tools/get_dts_input.py --target $@)
+
+
 build/usrp_x440%.dts: dts/*.dts dts/*.dtsi
 	-mkdir -p build
 	tools/parse_versions_for_dts.py \
