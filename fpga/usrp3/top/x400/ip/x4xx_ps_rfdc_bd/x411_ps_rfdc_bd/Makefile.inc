@@ -18,7 +18,7 @@ sync_wrapper.v \
 axis_mux.vhd \
 gpio_to_axis_mux.vhd \
 ) \
-$(addprefix $(BASE_DIR)/x400/rf/x410/, \
+$(addprefix $(BASE_DIR)/x400/rf/x411/, \
 x410_rf_reset_controller.vhd \
 x410_clock_gates.vhd \
 ) \
@@ -26,7 +26,7 @@ $(addprefix $(BASE_DIR)/../lib/control/, \
 synchronizer.v \
 synchronizer_impl.v \
 ) \
-$(addprefix $(BASE_DIR)/x400/regmap/x410/, PkgRFDC_REGS_REGMAP.vhd )
+$(addprefix $(BASE_DIR)/x400/regmap/x411/, PkgRFDC_REGS_REGMAP.vhd )
 
 IP_X4XX_PS_RFDC_BDTCL_SRCS = $(addprefix $(IP_BUILD_DIR)/x411_ps_rfdc_bd/, \
 x411_ps_rfdc_bd.tcl \
