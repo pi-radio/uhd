@@ -229,9 +229,6 @@
 #ifndef RFDC_H_
 #define RFDC_H_
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /***************************** Include Files *********************************/
 
@@ -252,6 +249,10 @@ extern "C" {
 #include <metal/sleep.h>
 #include "metal/alloc.h"
 #include "xrfdc_hw.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**************************** Type Definitions *******************************/
 #define XRFdc_IsADC4GSPS(InstPtr) XRFdc_IsHighSpeedADC(InstPtr, 0)

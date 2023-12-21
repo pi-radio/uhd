@@ -9,7 +9,7 @@ TDC clock synchronization
 
 import time
 import math
-from fractions import gcd
+from math import gcd
 from functools import reduce
 from builtins import object
 from usrp_mpm.mpmutils import poll_with_timeout
