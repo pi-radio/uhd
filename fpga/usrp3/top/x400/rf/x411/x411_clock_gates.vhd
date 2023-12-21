@@ -3,7 +3,7 @@
 --
 -- SPDX-License-Identifier: LGPL-3.0-or-later
 --
--- Module: x410_clock_gates
+-- Module: x411_clock_gates
 --
 -- Description:
 --
@@ -36,7 +36,7 @@ library WORK;
 use WORK.PkgRFDC_REGS_REGMAP.all;
 
 
-entity x410_clock_gates is
+entity x411_clock_gates is
   generic (
     kReliableClkPeriodNs : integer  := 25
   );
@@ -75,9 +75,9 @@ entity x410_clock_gates is
     rSoftwareControl       : in  std_logic_vector(31 downto 0);
     rSoftwareStatus        : out std_logic_vector(31 downto 0)
   );
-end x410_clock_gates;
+end x411_clock_gates;
 
-architecture STRUCT of x410_clock_gates is
+architecture STRUCT of x411_clock_gates is
 
   component sync_wrapper
     generic (

@@ -19,8 +19,8 @@ axis_mux.vhd \
 gpio_to_axis_mux.vhd \
 ) \
 $(addprefix $(BASE_DIR)/x400/rf/x411/, \
-x410_rf_reset_controller.vhd \
-x410_clock_gates.vhd \
+x411_rf_reset_controller.vhd \
+x411_clock_gates.vhd \
 ) \
 $(addprefix $(BASE_DIR)/../lib/control/, \
 synchronizer.v \

@@ -1,6 +1,6 @@
 
 ################################################################
-# This is a generated script based on design: x410_ps_rfdc_bd
+# This is a generated script based on design: x411_ps_rfdc_bd
 #
 # Though there are limitations about the generated script,
 # the main purpose of this utility is to make learning
@@ -35,12 +35,12 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 ################################################################
 
 # To test this script, run the following commands from Vivado Tcl console:
-# source x410_ps_rfdc_bd_script.tcl
+# source x411_ps_rfdc_bd_script.tcl
 
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# capture_sysref, x410_clock_gates, rf_nco_reset, x410_rf_reset_controller, x410_rf_reset_controller, gpio_to_axis_mux
+# capture_sysref, x411_clock_gates, rf_nco_reset, x411_rf_reset_controller, x411_rf_reset_controller, gpio_to_axis_mux
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -56,7 +56,7 @@ if { $list_projs eq "" } {
 
 # CHANGE DESIGN NAME HERE
 variable design_name
-set design_name x410_ps_rfdc_bd
+set design_name x411_ps_rfdc_bd
 
 # If you do not already have an existing IP Integrator design open,
 # you can create a design using the following command:
@@ -181,10 +181,10 @@ set bCheckModules 1
 if { $bCheckModules == 1 } {
    set list_check_mods "\ 
 capture_sysref\
-x410_clock_gates\
+x411_clock_gates\
 rf_nco_reset\
-x410_rf_reset_controller\
-x410_rf_reset_controller\
+x411_rf_reset_controller\
+x411_rf_reset_controller\
 gpio_to_axis_mux\
 "
 
@@ -835,17 +835,17 @@ proc create_hier_cell_rfdc { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.FREQ_HZ {61440000} \
    CONFIG.PHASE {0} \
-   CONFIG.CLK_DOMAIN {x410_ps_rfdc_bd_pll_ref_clk_in} \
+   CONFIG.CLK_DOMAIN {x411_ps_rfdc_bd_pll_ref_clk_in} \
  ] [get_bd_pins /rfdc/capture_sysref/pll_ref_clk]
 
   set_property -dict [ list \
    CONFIG.FREQ_HZ {184320000} \
    CONFIG.PHASE {0} \
-   CONFIG.CLK_DOMAIN {x410_ps_rfdc_bd_pll_ref_clk_in} \
+   CONFIG.CLK_DOMAIN {x411_ps_rfdc_bd_pll_ref_clk_in} \
  ] [get_bd_pins /rfdc/capture_sysref/rfdc_clk]
 
   # Create instance: clock_gates_0, and set properties
-  set block_name x410_clock_gates
+  set block_name x411_clock_gates
   set block_cell_name clock_gates_0
   if { [catch {set clock_gates_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
@@ -1262,7 +1262,7 @@ proc create_hier_cell_rfdc { parentCell nameHier } {
    }
   
   # Create instance: rf_reset_controller_0, and set properties
-  set block_name x410_rf_reset_controller
+  set block_name x411_rf_reset_controller
   set block_cell_name rf_reset_controller_0
   if { [catch {set rf_reset_controller_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
@@ -1273,7 +1273,7 @@ proc create_hier_cell_rfdc { parentCell nameHier } {
    }
   
   # Create instance: rf_reset_controller_1, and set properties
-  set block_name x410_rf_reset_controller
+  set block_name x411_rf_reset_controller
   set block_cell_name rf_reset_controller_1
   if { [catch {set rf_reset_controller_1 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
@@ -1555,12 +1555,12 @@ proc create_hier_cell_ps { parentCell nameHier } {
 
   set_property -dict [ list \
    CONFIG.FREQ_HZ {40000000} \
-   CONFIG.CLK_DOMAIN {x410_ps_rfdc_bd_clk40} \
+   CONFIG.CLK_DOMAIN {x411_ps_rfdc_bd_clk40} \
  ] [get_bd_intf_pins /ps/cpld_jtag_engine/S_AXI]
 
   set_property -dict [ list \
    CONFIG.FREQ_HZ {40000000} \
-   CONFIG.CLK_DOMAIN {x410_ps_rfdc_bd_clk40} \
+   CONFIG.CLK_DOMAIN {x411_ps_rfdc_bd_clk40} \
  ] [get_bd_pins /ps/cpld_jtag_engine/S_AXI_ACLK]
 
   # Create instance: eth_dma_internal

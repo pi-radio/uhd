@@ -100,6 +100,17 @@ rf/x410/x410_rf_reset_controller.vhd \
 dboards/zbx/db_gpio_interface.v
 endif
 
+ifdef X411
+TOP_SRCS += \
+rf/100m/rf_core_100m.v \
+rf/200m/rf_core_200m.v \
+rf/200m/rf_down_4to2.v \
+rf/200m/rf_up_2to4.v \
+rf/400m/rf_core_400m.v \
+rf/x410/x410_rf_reset_controller.vhd \
+dboards/zbx/db_gpio_interface.v
+endif
+
 ifdef X440
 TOP_SRCS += \
 rf/100m/rf_core_100m.v \
@@ -115,6 +126,11 @@ endif
 ifdef X410
 MB_XDC += \
 constraints/timing/x410_clocks.xdc
+endif
+
+ifdef X411
+MB_XDC += \
+constraints/timing/x411/x411_clocks.xdc
 endif
 
 ifdef X440
@@ -282,5 +298,10 @@ rtl: .prereqs
 
 viv_ip: .prereqs $$(DESIGN_SRCS) ip
 	@echo "IP build for $(NAME) DONE . . ."
+
+xsa: .prereqs
+	$(call BUILD_VIVADO_DESIGN,$(abspath ./dtbo/write_dtbo.tcl),$(TOP_MODULE),$(ARCH),$(PART_ID))
+	#vivado -mode batch -source dtbo/write_dtbo.tcl
+	
 
 .PHONY: bin synth rtl viv_ip

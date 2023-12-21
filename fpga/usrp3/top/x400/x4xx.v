@@ -1385,7 +1385,7 @@ module x4xx (
       .s_axi_hpc1_awuser             ()
     );
    `elsif X411
-    x410_ps_rfdc_bd x410_ps_rfdc_bd_i (
+    x411_ps_rfdc_bd x411_ps_rfdc_bd_i (
       .adc_data_out_resetn_dclk      (adc_data_out_resetn_dclk),
       .adc_enable_data_rclk          (adc_enable_data_rclk),
       .adc_reset_pulse_dclk          (adc_reset_pulse),

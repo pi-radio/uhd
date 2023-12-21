@@ -111,6 +111,7 @@ TOP ?= x4xx
 # vivado_build($1=Device, $2=Definitions, $3=Defaults)
 vivado_build = make -f Makefile.x4xx.inc $(TARGET) NAME=$@ ARCH=$(XIL_ARCH_$1) PART_ID=$(XIL_PART_ID_$1) $2 TOP_MODULE=$(TOP) EXTRA_DEFS="$2" $3
 vivado_ip    = make -f Makefile.x4xx.inc viv_ip    NAME=$@ ARCH=$(XIL_ARCH_$1) PART_ID=$(XIL_PART_ID_$1) $2 TOP_MODULE=$(TOP) EXTRA_DEFS="$2" $3
+vivado_xsa   = make -f Makefile.x4xx.inc xsa  NAME=$@ ARCH=$(XIL_ARCH_$1) PART_ID=$(XIL_PART_ID_$1) $2 TOP_MODULE=$(TOP) EXTRA_DEFS="$2" $3
 
 # vivado_build($1=Device, $2=Option)
 ifeq ($(TARGET),bin)
@@ -341,6 +342,9 @@ cleanall:     ##Clean up all target and IP build outputs.
 
 help:         ##Show this help message.
 	@grep -h "##" Makefile | grep -v "\"##\"" | sed -e 's/\\$$//' | sed -e 's/##//'
+
+xsa:
+	$(call vivado_xsa,x411,$(DEFS) X411=1,$(X411_200_DEFAULTS))
 
 ##
 ##Supported Options

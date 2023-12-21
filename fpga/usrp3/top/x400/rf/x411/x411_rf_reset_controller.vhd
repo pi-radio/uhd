@@ -3,7 +3,7 @@
 --
 -- SPDX-License-Identifier: LGPL-3.0-or-later
 --
--- Module: x410_rf_reset_controller
+-- Module: x411_rf_reset_controller
 --
 -- Description:
 --
@@ -17,7 +17,7 @@ library IEEE;
 library WORK;
   use WORK.PkgRFDC_REGS_REGMAP.all;
 
-entity x410_rf_reset_controller is
+entity x411_rf_reset_controller is
   port(
     -- Clocks
     -- Config clock is async to all the others.
@@ -52,10 +52,10 @@ entity x410_rf_reset_controller is
     cSoftwareControl   : in  std_logic_vector(31 downto 0);
     cSoftwareStatus    : out std_logic_vector(31 downto 0)
   );
-end x410_rf_reset_controller;
+end x411_rf_reset_controller;
 
 
-architecture RTL of x410_rf_reset_controller is
+architecture RTL of x411_rf_reset_controller is
 
   -- POR value for all resets are high.
   signal cTriggerAdcReset     : std_logic := '1';
